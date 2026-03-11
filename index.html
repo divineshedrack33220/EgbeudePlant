@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Egbeude Plant & Yiled · sustainable palm oil</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-green: #1a4d2e;
+            --secondary-green: #2c5e2e;
+            --accent-green: #4caf50;
+            --dark-bg: #1e2a36;
+            --light-bg: #f8faf9;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --white: #ffffff;
+            --warning-red: #dc2626;
+            --warning-bg: #fef2f2;
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Loading Overlay */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .loading-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Green loader - modified from provided CSS */
+        .loader {
+            width: 15px;
+            aspect-ratio: 1;
+            position: relative;
+        }
+        
+        .loader::before,
+        .loader::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: var(--primary-green); /* Changed to green */
+        }
+        
+        .loader::before {
+            box-shadow: -25px 0 var(--primary-green); /* Green shadow */
+            animation: l8-1 1s infinite linear;
+        }
+        
+        .loader::after {
+            transform: rotate(0deg) translateX(25px);
+            animation: l8-2 1s infinite linear;
+        }
+
+        @keyframes l8-1 {
+            100% { transform: translateX(25px); }
+        }
+        
+        @keyframes l8-2 {
+            100% { transform: rotate(-180deg) translateX(25px); }
+        }
+
+        /* Header Styles */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            text-decoration: none;
+        }
+
+        .logo h1 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-green);
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            font-size: 12px;
+            font-weight: 400;
+            color: var(--text-light);
+            letter-spacing: 1px;
+            display: block;
+        }
+
+        /* Desktop Menu */
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 8px;
+        }
+
+        .nav-menu li a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 14px;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+
+        .nav-menu li a:hover,
+        .nav-menu li a.active {
+            background: var(--primary-green);
+            color: var(--white);
+        }
+
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--primary-green);
+            cursor: pointer;
+        }
+
+        /* Hero Slider */
+        .hero {
+            position: relative;
+            height: 600px;
+            overflow: hidden;
+        }
+
+        .slider-container {
+            height: 100%;
+            position: relative;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);
+        }
+
+        .slide-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            margin-left: 10%;
+            color: var(--white);
+            animation: slideUp 1s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide-content h2 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .slide-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 14px 32px;
+            background: var(--primary-green);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            border-color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 10;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .dot.active {
+            background: var(--white);
+            transform: scale(1.2);
+        }
+
+        .dot:hover {
+            background: var(--white);
+        }
+
+        /* Page Content */
+        .page-content {
+            padding: 60px 0;
+            min-height: 400px;
+        }
+
+        .page-content h1 {
+            font-size: 36px;
+            color: var(--primary-green);
+            margin-bottom: 24px;
+        }
+
+        .page-content p {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .page-content ul {
+            margin-left: 20px;
+            color: var(--text-light);
+        }
+
+        .page-content li {
+            margin-bottom: 8px;
+        }
+
+        /* Company Introduction */
+        .intro-section {
+            padding: 80px 0;
+            background: var(--white);
+            text-align: center;
+        }
+
+        .intro-section h2 {
+            font-size: 36px;
+            color: var(--primary-green);
+            margin-bottom: 24px;
+            font-weight: 700;
+        }
+
+        .intro-section p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 18px;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* Business Activities */
+        .business-section {
+            padding: 80px 0;
+            background: var(--light-bg);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            color: var(--primary-green);
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 48px;
+            font-size: 18px;
+        }
+
+        .business-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .business-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 16px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .business-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.05);
+            border-color: var(--accent-green);
+        }
+
+        .business-card i {
+            font-size: 48px;
+            color: var(--primary-green);
+            margin-bottom: 24px;
+        }
+
+        .business-card h3 {
+            font-size: 20px;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .business-card p {
+            color: var(--text-light);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* Sustainability Section */
+        .sustainability {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .sustainability-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .sustainability-text h2 {
+            font-size: 36px;
+            color: var(--primary-green);
+            margin-bottom: 24px;
+            font-weight: 700;
+        }
+
+        .sustainability-text p {
+            color: var(--text-light);
+            margin-bottom: 24px;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            background: var(--light-bg);
+            border-radius: 12px;
+        }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary-green);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        .sustainability-image {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            height: 400px;
+        }
+
+        .sustainability-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .sustainability-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .image-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: var(--white);
+            padding: 30px 20px 20px;
+            font-size: 14px;
+        }
+
+        /* Scam Alert */
+        .scam-alert-wrapper {
+            padding: 20px 0 60px;
+        }
+
+        .scam-alert {
+            background: var(--warning-bg);
+            border-left: 6px solid var(--warning-red);
+            padding: 30px;
+            border-radius: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.1);
+        }
+
+        .scam-alert i {
+            font-size: 32px;
+            color: var(--warning-red);
+            flex-shrink: 0;
+        }
+
+        .scam-alert-content h3 {
+            color: var(--warning-red);
+            font-size: 20px;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .scam-alert-content p {
+            color: var(--text-dark);
+            margin-bottom: 12px;
+            font-size: 15px;
+        }
+
+        .scam-alert-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .scam-alert-content ul li {
+            color: var(--text-light);
+            font-size: 14px;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .scam-alert-content ul li::before {
+            content: "•";
+            color: var(--warning-red);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .alert-link {
+            color: var(--warning-red);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .alert-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Quick Links */
+        .quick-links {
+            padding: 60px 0;
+            background: var(--light-bg);
+        }
+
+        .quick-links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .quick-link-card {
+            background: var(--white);
+            padding: 24px 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-dark);
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+        }
+
+        .quick-link-card i {
+            font-size: 28px;
+            color: var(--primary-green);
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .quick-link-card span {
+            font-weight: 500;
+            font-size: 15px;
+        }
+
+        .quick-link-card:hover {
+            transform: translateY(-4px);
+            background: var(--primary-green);
+            color: var(--white);
+            box-shadow: 0 10px 20px rgba(26, 77, 46, 0.2);
+        }
+
+        .quick-link-card:hover i {
+            color: var(--white);
+        }
+
+        /* Contact Page Specific */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-info {
+            background: var(--light-bg);
+            padding: 30px;
+            border-radius: 12px;
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-info i {
+            color: var(--primary-green);
+            width: 20px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-bg);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h4 {
+            font-size: 18px;
+            margin-bottom: 24px;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .footer-section p {
+            color: #94a3b8;
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .footer-section a {
+            color: #94a3b8;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 12px;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .footer-section a:hover {
+            color: var(--white);
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
+
+        .social-links a:hover {
+            background: var(--primary-green);
+            transform: translateY(-3px);
+        }
+
+        .social-links a i {
+            font-size: 16px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 1024px) {
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-menu li a {
+                display: block;
+                padding: 12px 20px;
+            }
+
+            .hero {
+                height: 500px;
+            }
+
+            .slide-content {
+                margin: 0 24px;
+            }
+
+            .slide-content h2 {
+                font-size: 32px;
+            }
+
+            .sustainability-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .sustainability-image {
+                height: 300px;
+            }
+
+            .scam-alert {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo" onclick="showLoader(event)">
+                <h1>EGBEUDE PLANT & YILED<span>sustainable growth</span></h1>
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link active" onclick="showLoader(event)">Home</a></li>
+                <li><a href="overview.html" class="nav-link" onclick="showLoader(event)">Overview</a></li>
+                <li><a href="about.html" class="nav-link" onclick="showLoader(event)">About Us</a></li>
+                <li><a href="wedo.html" class="nav-link" onclick="showLoader(event)">What We Do</a></li>
+                <li><a href="contact.html" class="nav-link" onclick="showLoader(event)">Contact Us</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Slider -->
+    <section class="hero">
+        <div class="slider-container">
+            <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1636474333983-d97e60878c18?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')">
+                <div class="slide-content">
+                    <h2>Leading Sustainable Palm Oil Production</h2>
+                    <p>Committed to environmental stewardship and community development across Malaysia</p>
+                    <a href="about.html" class="cta-button" onclick="showLoader(event)">Discover Our Story</a>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1560830831-509af3fba830?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGFsbSUyMG9pbHxlbnwwfHwwfHx8MA%3D%3D')">
+                <div class="slide-content">
+                    <h2>Innovation in Agriculture</h2>
+                    <p>State-of-the-art milling facilities and sustainable farming practices</p>
+                    <a href="wedo.html" class="cta-button" onclick="showLoader(event)">Our Operations</a>
+                </div>
+            </div>
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1615992955236-ec38cbfc6fe2?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjR8fGZhcm0lMjBhZnJpY2F8ZW58MHx8MHx8fDA%3D')">
+                <div class="slide-content">
+                    <h2>Growing Together</h2>
+                    <p>Empowering local communities through sustainable agriculture</p>
+                    <a href="sustainability.html" class="cta-button" onclick="showLoader(event)">Sustainability</a>
+                </div>
+            </div>
+            <div class="slider-dots">
+                <span class="dot active" onclick="currentSlide(0)"></span>
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Introduction -->
+    <section class="intro-section">
+        <div class="container">
+            <h2>Welcome to Egbeude Plant & Yiled</h2>
+            <p>As a leading Malaysian plantation company, we specialize in sustainable oil palm cultivation and palm oil milling. With decades of experience in agricultural development, we combine traditional expertise with modern innovation to deliver excellence in plantation management.</p>
+        </div>
+    </section>
+
+    <!-- Business Activities -->
+    <section class="business-section">
+        <div class="container">
+            <h2 class="section-title">Our Core Business Activities</h2>
+            <p class="section-subtitle">Integrated plantation operations from cultivation to processing</p>
+            <div class="business-grid">
+                <a href="wedo.html" class="business-card" onclick="showLoader(event)">
+                    <i class="fas fa-tree"></i>
+                    <h3>Oil Palm Plantations</h3>
+                    <p>Large-scale cultivation across multiple estates in Malaysia with focus on high-yield sustainable practices.</p>
+                </a>
+                <a href="wedo.html" class="business-card" onclick="showLoader(event)">
+                    <i class="fas fa-industry"></i>
+                    <h3>Palm Oil Mills</h3>
+                    <p>Advanced milling facilities processing fresh fruit bunches with maximum efficiency and minimal waste.</p>
+                </a>
+                <a href="wedo.html" class="business-card" onclick="showLoader(event)">
+                    <i class="fas fa-seedling"></i>
+                    <h3>Agricultural Development</h3>
+                    <p>Continuous R&D in sustainable farming, pest management, and crop optimization.</p>
+                </a>
+                <a href="wedo.html" class="business-card" onclick="showLoader(event)">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Plantation Management</h3>
+                    <p>Professional management services including estate planning, yield optimization, and quality control.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sustainability Section -->
+    <section class="sustainability">
+        <div class="container">
+            <div class="sustainability-content">
+                <div class="sustainability-text">
+                    <h2>Sustainability & Corporate Responsibility</h2>
+                    <p>At Egbeude Plant & Yiled, sustainability is at the heart of everything we do. We are committed to responsible plantation management that protects the environment while supporting local communities.</p>
+                    <p>Our sustainability framework focuses on three key pillars: environmental stewardship, social responsibility, and economic viability. We ensure all our operations meet international standards for sustainable palm oil production.</p>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number">15,000+</div>
+                            <div class="stat-label">Hectares Conserved</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">MSPO Certified</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">5,000+</div>
+                            <div class="stat-label">Community Beneficiaries</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">30%</div>
+                            <div class="stat-label">Emissions Reduced</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sustainability-image">
+                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Sustainable plantation">
+                    <div class="image-caption">Our conservation areas protect biodiversity while maintaining productive plantations</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scam Alert -->
+    <div class="scam-alert-wrapper">
+        <div class="container">
+            <div class="scam-alert">
+                <i class="fas fa-exclamation-triangle"></i>
+                <div class="scam-alert-content">
+                    <h3>⚠️ SCAM ALERT: Protect Yourself from Fraud</h3>
+                    <p>We have received reports of individuals impersonating Egbeude Plant & Yiled financial advisors. These scammers are offering fake high-return investments.</p>
+                    <ul>
+                        <li>Egbeude Plant & Yiled NEVER offers unsolicited investment opportunities</li>
+                        <li>We do NOT have third-party financial representatives</li>
+                        <li>All official communications come from @egbeude.plant email addresses</li>
+                    </ul>
+                    <a href="scam-notice.html" class="alert-link" onclick="showLoader(event)">Learn how to identify scams <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Links -->
+    <section class="quick-links">
+        <div class="container">
+            <h2 class="section-title">Quick Access</h2>
+            <p class="section-subtitle">Find what you need faster</p>
+            <div class="quick-links-grid">
+                <a href="overview.html" class="quick-link-card" onclick="showLoader(event)">
+                    <i class="fas fa-building"></i>
+                    <span>Corporate Info</span>
+                </a>
+                <a href="careers.html" class="quick-link-card" onclick="showLoader(event)">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Careers</span>
+                </a>
+                <a href="investor-relations.html" class="quick-link-card" onclick="showLoader(event)">
+                    <i class="fas fa-chart-pie"></i>
+                    <span>Investor Relations</span>
+                </a>
+                <a href="sustainability.html" class="quick-link-card" onclick="showLoader(event)">
+                    <i class="fas fa-leaf"></i>
+                    <span>Sustainability</span>
+                </a>
+                <a href="announcements.html" class="quick-link-card" onclick="showLoader(event)">
+                    <i class="fas fa-newspaper"></i>
+                    <span>Announcements</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Egbeude Plant & Yiled</h4>
+                    <p>Leading the way in sustainable palm oil production since 1972. Committed to excellence, environment, and community.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="about.html" onclick="showLoader(event)">About Us</a>
+                    <a href="wedo.html" onclick="showLoader(event)">What We Do</a>
+                    <a href="sustainability.html" onclick="showLoader(event)">Sustainability</a>
+                    <a href="careers.html" onclick="showLoader(event)">Careers</a>
+                    <a href="contact.html" onclick="showLoader(event)">Contact</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Level 23, Menara TH<br>Jalan Maktab, 54000 Kuala Lumpur</p>
+                    <p><i class="fas fa-phone"></i> +603-1234 5678</p>
+                    <p><i class="fas fa-envelope"></i> info@egbeude.plant</p>
+                    <p><i class="fas fa-clock"></i> Mon-Fri: 8:30am - 5:30pm</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Egbeude Plant & Yiled. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#" onclick="alert('Privacy Policy page would open here'); showLoader(event); return false;">Privacy Policy</a>
+                    <a href="#" onclick="alert('Terms of Use page would open here'); showLoader(event); return false;">Terms of Use</a>
+                    <a href="#" onclick="alert('Disclaimer page would open here'); showLoader(event); return false;">Disclaimer</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Loading overlay functionality
+        const loadingOverlay = document.getElementById('loadingOverlay');
+        
+        function showLoader(event) {
+            // Don't show loader for links that are just alerts or have # href
+            if (event.target.getAttribute('href') === '#') {
+                return;
+            }
+            
+            event.preventDefault();
+            loadingOverlay.classList.add('active');
+            
+            // Get the href
+            const href = event.currentTarget.getAttribute('href');
+            
+            // Simulate loading delay (you can adjust this)
+            setTimeout(() => {
+                window.location.href = href;
+            }, 500);
+        }
+
+        // Hide loader when page is fully loaded
+        window.addEventListener('load', function() {
+            loadingOverlay.classList.remove('active');
+        });
+
+        // Show loader on initial page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadingOverlay.classList.add('active');
+            setTimeout(() => {
+                loadingOverlay.classList.remove('active');
+            }, 500);
+        });
+
+        // Hero Slider
+        let slides = document.querySelectorAll('.slide');
+        let dots = document.querySelectorAll('.dot');
+        let currentIndex = 0;
+        let slideInterval;
+
+        function showSlide(index) {
+            if (!slides.length) return;
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+            currentIndex = index;
+        }
+
+        window.currentSlide = function(index) {
+            if (slideInterval) clearInterval(slideInterval);
+            showSlide(index);
+            slideInterval = setInterval(nextSlide, 5000);
+        }
+
+        function nextSlide() {
+            if (!slides.length) return;
+            let next = (currentIndex + 1) % slides.length;
+            showSlide(next);
+        }
+
+        // Initialize slider
+        if (slides.length > 0) {
+            slideInterval = setInterval(nextSlide, 5000);
+            
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    clearInterval(slideInterval);
+                    showSlide(index);
+                    slideInterval = setInterval(nextSlide, 5000);
+                });
+            });
+
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.addEventListener('mouseenter', () => clearInterval(slideInterval));
+                hero.addEventListener('mouseleave', () => slideInterval = setInterval(nextSlide, 5000));
+            }
+        }
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('.nav-menu');
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+        }
+
+        // Header scroll effect
+        const header = document.querySelector('.header');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.05)';
+            }
+        });
+    </script>
+</body>
+</html>
