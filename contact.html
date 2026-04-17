@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Egbeude Plant & Yiled · Contact Us</title>
-    <!-- Same head content as wedo.html -->
+    <title>Egbeude Plant & Yield Ltd · Contact Us</title>
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Copy ALL styles from wedo.html plus enhanced contact styles */
         * {
             margin: 0;
             padding: 0;
@@ -44,7 +43,6 @@
             padding: 0 24px;
         }
 
-        /* Loading Overlay */
         .loading-overlay {
             position: fixed;
             top: 0;
@@ -67,7 +65,6 @@
             visibility: visible;
         }
 
-        /* Green loader */
         .loader {
             width: 15px;
             aspect-ratio: 1;
@@ -101,7 +98,6 @@
             100% { transform: rotate(-180deg) translateX(25px); }
         }
 
-        /* Header Styles */
         .header {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -140,7 +136,6 @@
             display: block;
         }
 
-        /* Desktop Menu */
         .nav-menu {
             display: flex;
             list-style: none;
@@ -164,7 +159,6 @@
             color: var(--white);
         }
 
-        /* Mobile Menu Button */
         .mobile-menu-btn {
             display: none;
             background: none;
@@ -174,7 +168,6 @@
             cursor: pointer;
         }
 
-        /* Hero Section */
         .contact-hero {
             background: linear-gradient(135deg, #0f2b1a 0%, var(--primary-green) 100%);
             color: var(--white);
@@ -191,7 +184,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('https://images.unsplash.com/photo-1560830831-509af3fba830?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGFsbSUyMG9pbHxlbnwwfHwwfHx8MA%3D%3D') center/cover;
+            background: url('https://images.unsplash.com/photo-1560830831-509af3fba830?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0') center/cover;
             opacity: 0.2;
             z-index: 0;
         }
@@ -227,7 +220,6 @@
             }
         }
 
-        /* Section Styles */
         .section-padding {
             padding: 80px 0;
         }
@@ -259,7 +251,6 @@
             max-width: 700px;
         }
 
-        /* Contact Info Cards */
         .contact-cards {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -312,7 +303,6 @@
             margin: 0;
         }
 
-        /* Contact Grid (Enhanced) */
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -418,10 +408,9 @@
             box-shadow: 0 10px 20px rgba(26, 77, 46, 0.2);
         }
 
-        /* Office Locations */
         .locations-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 30px;
             margin: 40px 0;
         }
@@ -442,17 +431,16 @@
         .location-image {
             height: 200px;
             overflow: hidden;
+            background: var(--light-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .location-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .location-card:hover .location-image img {
-            transform: scale(1.1);
+        .location-image i {
+            font-size: 60px;
+            color: var(--primary-green);
+            opacity: 0.5;
         }
 
         .location-info {
@@ -479,7 +467,6 @@
             width: 20px;
         }
 
-        /* Map Container */
         .map-container {
             margin-top: 60px;
             border-radius: 24px;
@@ -494,7 +481,6 @@
             border: 0;
         }
 
-        /* FAQ Section */
         .faq-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -540,7 +526,6 @@
             margin: 0 0 0 35px;
         }
 
-        /* Footer */
         .footer {
             background: var(--dark-bg);
             color: var(--white);
@@ -635,14 +620,14 @@
             color: var(--white);
         }
 
-        /* Mobile responsive */
         @media (max-width: 1024px) {
             .contact-cards,
-            .locations-grid,
             .faq-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-
+            .locations-grid {
+                grid-template-columns: 1fr;
+            }
             .footer-content {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -652,7 +637,6 @@
             .mobile-menu-btn {
                 display: block;
             }
-
             .nav-menu {
                 display: none;
                 position: absolute;
@@ -665,45 +649,35 @@
                 box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
                 border-bottom: 1px solid rgba(0, 0, 0, 0.05);
             }
-
             .nav-menu.active {
                 display: flex;
             }
-
             .nav-menu li a {
                 display: block;
                 padding: 12px 20px;
             }
-
             .contact-hero h1 {
                 font-size: 36px;
             }
-
             .contact-hero p {
                 font-size: 18px;
             }
-
             .contact-cards,
-            .locations-grid,
             .faq-grid,
             .form-row {
                 grid-template-columns: 1fr;
             }
-
             .contact-grid {
                 grid-template-columns: 1fr;
             }
-
             .footer-content {
                 grid-template-columns: 1fr;
                 gap: 30px;
             }
-
             .footer-bottom {
                 flex-direction: column;
                 text-align: center;
             }
-
             .footer-links {
                 justify-content: center;
             }
@@ -711,16 +685,14 @@
     </style>
 </head>
 <body>
-    <!-- Loading Overlay -->
     <div class="loading-overlay" id="loadingOverlay">
         <div class="loader"></div>
     </div>
 
-    <!-- Header -->
     <header class="header">
         <div class="container header-container">
             <a href="index.html" class="logo" onclick="showLoader(event)">
-                <h1>EGBEUDE PLANT & YILED<span>sustainable growth</span></h1>
+                <h1>EGBEUDE PLANT & YIELD LTD<span>agriculture · real estate · nigeria</span></h1>
             </a>
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
@@ -735,15 +707,14 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="contact-hero">
         <div class="container">
             <h1>Get in Touch</h1>
-            <p>We're here to answer your questions, discuss partnerships, or explore career opportunities. Reach out through any of our channels.</p>
+            <p>We're here to answer your questions, discuss partnerships, or explore opportunities. Reach out through any of our channels.</p>
         </div>
     </section>
 
-    <!-- Section 1: Quick Contact Cards -->
+    <!-- Quick Contact Cards -->
     <section class="section-padding">
         <div class="container">
             <div class="contact-cards">
@@ -752,34 +723,34 @@
                         <i class="fas fa-phone-alt"></i>
                     </div>
                     <h3>Call Us</h3>
-                    <p>+603-1234 5678<br>Mon-Fri 8:30-17:30</p>
+                    <p>+234 (0) 123 456 7890<br>Mon-Fri 9:00-17:00 WAT</p>
                 </div>
                 <div class="contact-card">
                     <div class="contact-icon">
                         <i class="fas fa-envelope"></i>
                     </div>
                     <h3>Email Us</h3>
-                    <p>info@egbeude.plant<br>investor@egbeude.plant</p>
+                    <p>info@egbeudeplant.com.ng<br>investor@egbeudeplant.com.ng</p>
                 </div>
                 <div class="contact-card">
                     <div class="contact-icon">
                         <i class="fas fa-map-marker-alt"></i>
                     </div>
                     <h3>Visit Us</h3>
-                    <p>Level 23, Menara TH<br>Kuala Lumpur</p>
+                    <p>N117 Cameron Road, Aba<br>Abia State, Nigeria</p>
                 </div>
                 <div class="contact-card">
                     <div class="contact-icon">
                         <i class="fas fa-clock"></i>
                     </div>
                     <h3>Business Hours</h3>
-                    <p>8:30am - 5:30pm (MYT)<br>Saturday-Sunday Closed</p>
+                    <p>9:00am - 5:00pm (WAT)<br>Saturday-Sunday Closed</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 2: Contact Form & Info -->
+    <!-- Contact Form & Info -->
     <section class="section-padding" style="background: var(--light-bg);">
         <div class="container">
             <h2 class="section-title">Send Us a Message</h2>
@@ -788,29 +759,34 @@
             <div class="contact-grid">
                 <div class="contact-info-enhanced">
                     <h3 style="font-size: 24px; margin-bottom: 20px;">Let's Connect</h3>
-                    <p style="color: var(--text-light); margin-bottom: 30px;">Whether you're a potential client, investor, partner, or looking to join our team – we'd love to hear from you.</p>
+                    <p style="color: var(--text-light); margin-bottom: 30px;">Whether you're a potential client, investor, partner, or looking to work with us – we'd love to hear from you.</p>
                     
                     <div style="margin-bottom: 25px;">
-                        <h4 style="font-size: 18px; margin-bottom: 15px; color: var(--text-dark);">📍 Head Office</h4>
-                        <p style="color: var(--text-light);">Level 23, Menara TH<br>Jalan Maktab, 54000 Kuala Lumpur<br>Malaysia</p>
+                        <h4 style="font-size: 18px; margin-bottom: 15px; color: var(--text-dark);">📍 Corporate Office</h4>
+                        <p style="color: var(--text-light);">N117 Cameron Road, Aba<br>Abia State, Nigeria</p>
+                    </div>
+
+                    <div style="margin-bottom: 25px;">
+                        <h4 style="font-size: 18px; margin-bottom: 15px; color: var(--text-dark);">🌴 Farm Location</h4>
+                        <p style="color: var(--text-light);">30-hectare oil palm plantation<br>Nkporo community, Ohafia LGA, Abia State</p>
                     </div>
 
                     <div style="margin-bottom: 25px;">
                         <h4 style="font-size: 18px; margin-bottom: 15px; color: var(--text-dark);">📞 Direct Contacts</h4>
-                        <p style="color: var(--text-light); margin-bottom: 8px;"><i class="fas fa-phone" style="width: 25px; color: var(--primary-green);"></i> General: +603-1234 5678</p>
-                        <p style="color: var(--text-light); margin-bottom: 8px;"><i class="fas fa-chart-line" style="width: 25px; color: var(--primary-green);"></i> Investor Relations: +603-8765 4321</p>
-                        <p style="color: var(--text-light); margin-bottom: 8px;"><i class="fas fa-briefcase" style="width: 25px; color: var(--primary-green);"></i> Careers: +603-1234 5679</p>
+                        <p style="color: var(--text-light); margin-bottom: 8px;"><i class="fas fa-phone" style="width: 25px; color: var(--primary-green);"></i> General: +234 (0) 123 456 7890</p>
+                        <p style="color: var(--text-light); margin-bottom: 8px;"><i class="fas fa-chart-line" style="width: 25px; color: var(--primary-green);"></i> Investor Relations: +234 (0) 123 456 7891</p>
+                        <p style="color: var(--text-light); margin-bottom: 8px;"><i class="fas fa-tractor" style="width: 25px; color: var(--primary-green);"></i> Farm Operations: +234 (0) 123 456 7892</p>
                     </div>
 
                     <div class="office-hours">
-                        <h4>Office Hours</h4>
+                        <h4>Office Hours (WAT - West Africa Time)</h4>
                         <div class="hours-item">
                             <span>Monday - Thursday</span>
-                            <span>8:30am - 5:30pm</span>
+                            <span>9:00am - 5:00pm</span>
                         </div>
                         <div class="hours-item">
                             <span>Friday</span>
-                            <span>8:30am - 12:30pm</span>
+                            <span>9:00am - 4:00pm</span>
                         </div>
                         <div class="hours-item">
                             <span>Saturday - Sunday</span>
@@ -847,9 +823,9 @@
                             <select id="subject" required>
                                 <option value="">Select a subject</option>
                                 <option value="general">General Inquiry</option>
-                                <option value="sales">Sales & Partnerships</option>
+                                <option value="sales">Partnerships & Sales</option>
                                 <option value="investor">Investor Relations</option>
-                                <option value="careers">Careers & HR</option>
+                                <option value="careers">Careers / Employment</option>
                                 <option value="media">Media Enquiry</option>
                                 <option value="sustainability">Sustainability</option>
                             </select>
@@ -870,53 +846,43 @@
         </div>
     </section>
 
-    <!-- Section 3: Office Locations -->
+    <!-- Our Locations -->
     <section class="section-padding">
         <div class="container">
             <h2 class="section-title">Our Locations</h2>
-            <p class="section-subtitle">Strategically positioned across Malaysia to serve you better</p>
+            <p class="section-subtitle">Serving Abia State from our corporate headquarters and farm operations</p>
             
             <div class="locations-grid">
                 <div class="location-card">
                     <div class="location-image">
-                        <img src="https://images.unsplash.com/photo-1589416222681-a2bd5a1aa1fe?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Kuala Lumpur HQ">
+                        <i class="fas fa-building"></i>
                     </div>
                     <div class="location-info">
-                        <h3>Kuala Lumpur (HQ)</h3>
-                        <p><i class="fas fa-map-marker-alt"></i> Level 23, Menara TH</p>
-                        <p><i class="fas fa-phone"></i> +603-1234 5678</p>
-                        <p><i class="fas fa-envelope"></i> kl@egbeude.plant</p>
+                        <h3>Corporate Headquarters</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> N117 Cameron Road, Aba, Abia State, Nigeria</p>
+                        <p><i class="fas fa-phone"></i> +234 (0) 123 456 7890</p>
+                        <p><i class="fas fa-envelope"></i> info@egbeudeplant.com.ng</p>
+                        <p><i class="fas fa-clock"></i> Mon-Fri: 9:00am - 5:00pm</p>
                     </div>
                 </div>
 
                 <div class="location-card">
                     <div class="location-image">
-                        <img src="https://images.unsplash.com/photo-1596422846587-e69985d3b2b7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Sabah Office">
+                        <i class="fas fa-tree"></i>
                     </div>
                     <div class="location-info">
-                        <h3>Sabah Regional</h3>
-                        <p><i class="fas fa-map-marker-alt"></i> Lot 123, Kota Kinabalu</p>
-                        <p><i class="fas fa-phone"></i> +608-8765 4321</p>
-                        <p><i class="fas fa-envelope"></i> sabah@egbeude.plant</p>
-                    </div>
-                </div>
-
-                <div class="location-card">
-                    <div class="location-image">
-                        <img src="https://images.unsplash.com/photo-1596611410439-0b4c9ae7c8e1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Sarawak Office">
-                    </div>
-                    <div class="location-info">
-                        <h3>Sarawak Regional</h3>
-                        <p><i class="fas fa-map-marker-alt"></i> 45 Jalan Tunku, Kuching</p>
-                        <p><i class="fas fa-phone"></i> +608-2123 4567</p>
-                        <p><i class="fas fa-envelope"></i> sarawak@egbeude.plant</p>
+                        <h3>Nkporo Farm - Ohafia LGA</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Nkporo community, Ohafia Local Government Area, Abia State, Nigeria</p>
+                        <p><i class="fas fa-tractor"></i> 30 hectares of oil palm plantation</p>
+                        <p><i class="fas fa-users"></i> Community partnership with Nkporo</p>
+                        <p><i class="fas fa-calendar-alt"></i> Operations since 2024</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 4: FAQ -->
+    <!-- FAQ Section -->
     <section class="section-padding" style="background: var(--light-bg);">
         <div class="container">
             <h2 class="section-title">Frequently Asked Questions</h2>
@@ -934,17 +900,17 @@
                 <div class="faq-item">
                     <div class="faq-question">
                         <i class="fas fa-handshake"></i>
-                        <h4>How can I become a supplier?</h4>
+                        <h4>How can I become a partner?</h4>
                     </div>
-                    <p>Please email our procurement team at procurement@egbeude.plant with your company details and services offered.</p>
+                    <p>Please email our partnerships team at info@egbeudeplant.com.ng with your company details and proposed collaboration.</p>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question">
                         <i class="fas fa-file-invoice"></i>
-                        <h4>Where can I find financial reports?</h4>
+                        <h4>Where can I find financial information?</h4>
                     </div>
-                    <p>Investor relations materials, including annual reports and financial statements, are available upon request to our IR team.</p>
+                    <p>Investor relations materials are available upon request. Please contact our IR team at investor@egbeudeplant.com.ng.</p>
                 </div>
 
                 <div class="faq-item">
@@ -952,15 +918,15 @@
                         <i class="fas fa-briefcase"></i>
                         <h4>How do I apply for jobs?</h4>
                     </div>
-                    <p>Visit our Careers page or email your resume to careers@egbeude.plant with the position title in the subject line.</p>
+                    <p>We welcome inquiries from qualified candidates. Please send your CV and cover letter to careers@egbeudeplant.com.ng.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Map Section -->
+    <!-- Map Section - Aba, Abia State -->
     <section class="map-container">
-        <iframe class="map-iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.537918892287!2d101.6942443147572!3d3.157254597689424!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc49c701fe7d5f%3A0x1cfbdaadf605c09d!2sMenara%20TH!5e0!3m2!1sen!2smy!4v1648123456789!5m2!1sen!2smy" allowfullscreen="" loading="lazy"></iframe>
+        <iframe class="map-iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d253682.9374159679!2d7.243058546086886!3d5.126164946040121!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1042620e3c064355%3A0x1a2e1d8c2e8f5e6b!2sAba%2C%20Abia%20State%2C%20Nigeria!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s" allowfullscreen="" loading="lazy"></iframe>
     </section>
 
     <!-- Footer -->
@@ -968,8 +934,8 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h4>Egbeude Plant & Yiled</h4>
-                    <p>Leading the way in sustainable palm oil production since 1972. Committed to excellence, environment, and community.</p>
+                    <h4>Egbeude Plant & Yield Ltd</h4>
+                    <p>Agricultural & Real Estate company focused on oil palm plantation in Abia State, Nigeria. Registered with CAC October 2025.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -987,14 +953,14 @@
                 </div>
                 <div class="footer-section">
                     <h4>Contact Us</h4>
-                    <p><i class="fas fa-map-marker-alt"></i> Level 23, Menara TH<br>Jalan Maktab, 54000 Kuala Lumpur</p>
-                    <p><i class="fas fa-phone"></i> +603-1234 5678</p>
-                    <p><i class="fas fa-envelope"></i> info@egbeude.plant</p>
-                    <p><i class="fas fa-clock"></i> Mon-Fri: 8:30am - 5:30pm</p>
+                    <p><i class="fas fa-map-marker-alt"></i> N117 Cameron Road, Aba<br>Abia State, Nigeria</p>
+                    <p><i class="fas fa-tractor"></i> Farm: Nkporo, Ohafia LGA</p>
+                    <p><i class="fas fa-envelope"></i> info@egbeudeplant.com.ng</p>
+                    <p><i class="fas fa-clock"></i> Mon-Fri: 9:00am - 5:00pm WAT</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2025 Egbeude Plant & Yiled. All rights reserved.</p>
+                <p>© 2026 Egbeude Plant & Yield Ltd. All rights reserved.</p>
                 <div class="footer-links">
                     <a href="#" onclick="alert('Privacy Policy page would open here'); showLoader(event); return false;">Privacy Policy</a>
                     <a href="#" onclick="alert('Terms of Use page would open here'); showLoader(event); return false;">Terms of Use</a>
@@ -1005,11 +971,9 @@
     </footer>
 
     <script>
-        // Loading overlay functionality
         const loadingOverlay = document.getElementById('loadingOverlay');
         
         function showLoader(event) {
-            // Don't show loader for links that are just alerts or have # href
             if (event.target.getAttribute('href') === '#') {
                 return;
             }
@@ -1017,21 +981,17 @@
             event.preventDefault();
             loadingOverlay.classList.add('active');
             
-            // Get the href
             const href = event.currentTarget.getAttribute('href');
             
-            // Simulate loading delay
             setTimeout(() => {
                 window.location.href = href;
             }, 500);
         }
 
-        // Hide loader when page is fully loaded
         window.addEventListener('load', function() {
             loadingOverlay.classList.remove('active');
         });
 
-        // Show loader on initial page load
         document.addEventListener('DOMContentLoaded', function() {
             loadingOverlay.classList.add('active');
             setTimeout(() => {
@@ -1039,7 +999,6 @@
             }, 500);
         });
 
-        // Mobile Menu Toggle
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const navMenu = document.querySelector('.nav-menu');
         if (mobileMenuBtn) {
@@ -1048,7 +1007,6 @@
             });
         }
 
-        // Header scroll effect
         const header = document.querySelector('.header');
         window.addEventListener('scroll', () => {
             if (window.pageYOffset > 100) {
