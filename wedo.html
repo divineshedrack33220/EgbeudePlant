@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Egbeude Plant & Yiled · What We Do</title>
-    <!-- Same head content as about.html -->
+    <title>Egbeude Plant & Yield Ltd · What We Do</title>
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Copy ALL styles from about.html plus additional styles */
         * {
             margin: 0;
             padding: 0;
@@ -44,7 +43,6 @@
             padding: 0 24px;
         }
 
-        /* Loading Overlay */
         .loading-overlay {
             position: fixed;
             top: 0;
@@ -67,7 +65,6 @@
             visibility: visible;
         }
 
-        /* Green loader */
         .loader {
             width: 15px;
             aspect-ratio: 1;
@@ -101,7 +98,6 @@
             100% { transform: rotate(-180deg) translateX(25px); }
         }
 
-        /* Header Styles */
         .header {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -140,7 +136,6 @@
             display: block;
         }
 
-        /* Desktop Menu */
         .nav-menu {
             display: flex;
             list-style: none;
@@ -164,7 +159,6 @@
             color: var(--white);
         }
 
-        /* Mobile Menu Button */
         .mobile-menu-btn {
             display: none;
             background: none;
@@ -174,7 +168,6 @@
             cursor: pointer;
         }
 
-        /* Hero Section */
         .wedo-hero {
             background: linear-gradient(135deg, #0f2b1a 0%, var(--primary-green) 100%);
             color: var(--white);
@@ -191,7 +184,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('https://images.unsplash.com/photo-1560830831-509af3fba830?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGFsbSUyMG9pbHxlbnwwfHwwfHx8MA%3D%3D') center/cover;
+            background: url('https://images.unsplash.com/photo-1560830831-509af3fba830?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0') center/cover;
             opacity: 0.2;
             z-index: 0;
         }
@@ -227,7 +220,6 @@
             }
         }
 
-        /* Section Styles */
         .section-padding {
             padding: 80px 0;
         }
@@ -259,7 +251,6 @@
             max-width: 700px;
         }
 
-        /* Content Grid */
         .content-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -317,7 +308,6 @@
             font-size: 20px;
         }
 
-        /* Operations Grid (Enhanced) */
         .operations-showcase {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -396,107 +386,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* Process Timeline */
-        .process-timeline {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .process-step {
-            text-align: center;
-            padding: 30px;
-            background: var(--white);
-            border-radius: 16px;
-            position: relative;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-        }
-
-        .process-step::after {
-            content: '→';
-            position: absolute;
-            right: -20px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 24px;
-            color: var(--primary-green);
-            font-weight: 700;
-        }
-
-        .process-step:last-child::after {
-            display: none;
-        }
-
-        .step-number {
-            width: 50px;
-            height: 50px;
-            background: var(--primary-green);
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            font-weight: 700;
-            margin: 0 auto 20px;
-        }
-
-        .process-step h4 {
-            font-size: 18px;
-            margin-bottom: 10px;
-            color: var(--text-dark);
-        }
-
-        .process-step p {
-            color: var(--text-light);
-            font-size: 14px;
-            line-height: 1.6;
-            margin: 0;
-        }
-
-        /* Technology Grid */
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-            margin-top: 40px;
-        }
-
-        .tech-card {
-            background: var(--white);
-            padding: 30px;
-            border-radius: 16px;
-            text-align: center;
-            transition: var(--transition);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .tech-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .tech-card i {
-            font-size: 40px;
-            color: var(--primary-green);
-            margin-bottom: 20px;
-        }
-
-        .tech-card h4 {
-            font-size: 18px;
-            margin-bottom: 10px;
-            color: var(--text-dark);
-        }
-
-        .tech-card p {
-            color: var(--text-light);
-            font-size: 14px;
-            line-height: 1.6;
-            margin: 0;
-        }
-
-        /* Impact Stats */
         .impact-stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -510,6 +399,12 @@
             border-radius: 16px;
             text-align: center;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .impact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
 
         .impact-card i {
@@ -530,7 +425,6 @@
             font-size: 14px;
         }
 
-        /* Footer */
         .footer {
             background: var(--dark-bg);
             color: var(--white);
@@ -625,19 +519,11 @@
             color: var(--white);
         }
 
-        /* Mobile responsive */
         @media (max-width: 1024px) {
             .operations-showcase,
-            .process-timeline,
-            .tech-grid,
             .impact-stats {
                 grid-template-columns: repeat(2, 1fr);
             }
-
-            .process-step::after {
-                display: none;
-            }
-
             .footer-content {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -647,7 +533,6 @@
             .mobile-menu-btn {
                 display: block;
             }
-
             .nav-menu {
                 display: none;
                 position: absolute;
@@ -660,46 +545,35 @@
                 box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
                 border-bottom: 1px solid rgba(0, 0, 0, 0.05);
             }
-
             .nav-menu.active {
                 display: flex;
             }
-
             .nav-menu li a {
                 display: block;
                 padding: 12px 20px;
             }
-
             .wedo-hero h1 {
                 font-size: 36px;
             }
-
             .wedo-hero p {
                 font-size: 18px;
             }
-
             .content-grid {
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
-
             .operations-showcase,
-            .process-timeline,
-            .tech-grid,
             .impact-stats {
                 grid-template-columns: 1fr;
             }
-
             .footer-content {
                 grid-template-columns: 1fr;
                 gap: 30px;
             }
-
             .footer-bottom {
                 flex-direction: column;
                 text-align: center;
             }
-
             .footer-links {
                 justify-content: center;
             }
@@ -707,16 +581,14 @@
     </style>
 </head>
 <body>
-    <!-- Loading Overlay -->
     <div class="loading-overlay" id="loadingOverlay">
         <div class="loader"></div>
     </div>
 
-    <!-- Header -->
     <header class="header">
         <div class="container header-container">
             <a href="index.html" class="logo" onclick="showLoader(event)">
-                <h1>EGBEUDE PLANT & YILED<span>sustainable growth</span></h1>
+                <h1>EGBEUDE PLANT & YIELD LTD<span>agriculture · real estate · nigeria</span></h1>
             </a>
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
@@ -731,105 +603,88 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="wedo-hero">
         <div class="container">
-            <h1>Integrated Palm Oil Operations</h1>
-            <p>From cultivation to customer, we deliver excellence at every step of the palm oil value chain through innovation, sustainability, and uncompromising quality.</p>
+            <h1>What We Do</h1>
+            <p>Oil palm cultivation · Crop farming · Real estate — creating sustainable value in Abia State, Nigeria</p>
         </div>
     </section>
 
-    <!-- Section 1: Core Operations -->
+    <!-- Core Operations Section -->
     <section class="section-padding">
         <div class="container">
-            <h2 class="section-title">Our Core Operations</h2>
-            <p class="section-subtitle">End-to-end expertise in palm oil production and processing</p>
+            <h2 class="section-title">Our Core Activities</h2>
+            <p class="section-subtitle">Integrated operations focused on agriculture, real estate, and community development</p>
             
             <div class="operations-showcase">
                 <div class="operation-card">
                     <div class="operation-icon">
                         <i class="fas fa-tree"></i>
                     </div>
-                    <h3>Oil Palm Plantations</h3>
-                    <p>We manage extensive oil palm estates across Malaysia, implementing precision agriculture and sustainable practices to maximize yield while protecting biodiversity.</p>
+                    <h3>Oil Palm Plantation</h3>
+                    <p>30 hectares of high-yield oil palm in Nkporo community, Ohafia LGA, producing quality fresh fruit bunches through sustainable farming practices.</p>
                     <div class="operation-stats">
                         <div class="operation-stat">
-                            <div class="number">125K</div>
+                            <div class="number">30+</div>
                             <div class="label">hectares</div>
                         </div>
                         <div class="operation-stat">
-                            <div class="number">32</div>
-                            <div class="label">estates</div>
-                        </div>
-                        <div class="operation-stat">
-                            <div class="number">28</div>
-                            <div class="label">MT/ha yield</div>
+                            <div class="number">Nkporo</div>
+                            <div class="label">Ohafia LGA</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="operation-card">
                     <div class="operation-icon">
-                        <i class="fas fa-industry"></i>
+                        <i class="fas fa-seedling"></i>
                     </div>
-                    <h3>Palm Oil Mills</h3>
-                    <p>State-of-the-art milling facilities processing fresh fruit bunches within 24 hours of harvest, ensuring maximum oil extraction and quality.</p>
+                    <h3>Diverse Crops</h3>
+                    <p>Intercropping and cultivation of other agricultural products to enhance food security and create additional revenue streams.</p>
                     <div class="operation-stats">
                         <div class="operation-stat">
-                            <div class="number">14</div>
-                            <div class="label">mills</div>
+                            <div class="number">Food</div>
+                            <div class="label">Security Focus</div>
                         </div>
                         <div class="operation-stat">
-                            <div class="number">3.8M</div>
-                            <div class="label">MT capacity</div>
-                        </div>
-                        <div class="operation-stat">
-                            <div class="number">22%</div>
-                            <div class="label">OER</div>
+                            <div class="number">Diverse</div>
+                            <div class="label">Revenue Streams</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="operation-card">
                     <div class="operation-icon">
-                        <i class="fas fa-flask"></i>
+                        <i class="fas fa-building"></i>
                     </div>
-                    <h3>R&D & Innovation</h3>
-                    <p>Continuous research in sustainable farming, pest management, and crop optimization to improve yields and reduce environmental impact.</p>
+                    <h3>Real Estate</h3>
+                    <p>Strategic land and property investments alongside agricultural operations, maximizing asset utilization and long-term value.</p>
                     <div class="operation-stats">
                         <div class="operation-stat">
-                            <div class="number">2</div>
-                            <div class="label">research centers</div>
+                            <div class="number">Strategic</div>
+                            <div class="label">Investments</div>
                         </div>
                         <div class="operation-stat">
-                            <div class="number">15+</div>
-                            <div class="label">patents</div>
-                        </div>
-                        <div class="operation-stat">
-                            <div class="number">50+</div>
-                            <div class="label">scientists</div>
+                            <div class="number">Aba</div>
+                            <div class="label">Corporate HQ</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="operation-card">
                     <div class="operation-icon">
-                        <i class="fas fa-ship"></i>
+                        <i class="fas fa-handshake"></i>
                     </div>
-                    <h3>Logistics & Distribution</h3>
-                    <p>Integrated supply chain ensuring efficient delivery of palm oil products to customers across 25+ countries worldwide.</p>
+                    <h3>Sustainable Growth</h3>
+                    <p>Community partnership with Nkporo, Ohafia LGA, creating local jobs and supporting economic development in Abia State.</p>
                     <div class="operation-stats">
                         <div class="operation-stat">
-                            <div class="number">25+</div>
-                            <div class="label">countries</div>
+                            <div class="number">100%</div>
+                            <div class="label">Local Focus</div>
                         </div>
                         <div class="operation-stat">
-                            <div class="number">6</div>
-                            <div class="label">regional hubs</div>
-                        </div>
-                        <div class="operation-stat">
-                            <div class="number">1.8M</div>
-                            <div class="label">MT exported</div>
+                            <div class="number">Partnership</div>
+                            <div class="label">With Community</div>
                         </div>
                     </div>
                 </div>
@@ -837,129 +692,126 @@
         </div>
     </section>
 
-    <!-- Section 2: Upstream Operations -->
+    <!-- Oil Palm Plantation Section -->
     <section class="section-padding" style="background: var(--light-bg);">
         <div class="container">
-            <h2 class="section-title">Upstream Excellence</h2>
-            <p class="section-subtitle">Sustainable cultivation and harvesting practices that set industry benchmarks</p>
+            <h2 class="section-title">Oil Palm Plantation</h2>
+            <p class="section-subtitle">Our flagship operation — 30 hectares of productive farmland in Nkporo</p>
             
             <div class="content-grid">
                 <div class="content-image">
-                    <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Oil palm plantation">
+                    <img src="asset/8.jpg" alt="Oil palm plantation Nigeria">
                 </div>
                 <div class="content-text">
-                    <h3>Precision Agriculture</h3>
-                    <p>Our plantations leverage cutting-edge technology including drone monitoring, IoT sensors, and satellite imagery to optimize every aspect of cultivation.</p>
+                    <h3>High-Yield Oil Palm Production</h3>
+                    <p>Our 30-hectare oil palm plantation is located in Nkporo community, Ohafia Local Government Area, Abia State. We focus on producing quality fresh fruit bunches (FFB) through sustainable and responsible farming methods.</p>
                     <ul class="feature-list">
-                        <li><i class="fas fa-drone"></i> Aerial monitoring for pest detection and yield estimation</li>
-                        <li><i class="fas fa-tint"></i> Smart irrigation systems reducing water usage by 30%</li>
-                        <li><i class="fas fa-chart-line"></i> Yield prediction algorithms with 95% accuracy</li>
-                        <li><i class="fas fa-leaf"></i> Organic fertilizer programs across 40% of estates</li>
+                        <li><i class="fas fa-check-circle"></i> 30 hectares of productive oil palm</li>
+                        <li><i class="fas fa-check-circle"></i> Located in Nkporo, Ohafia LGA, Abia State</li>
+                        <li><i class="fas fa-check-circle"></i> Quality fresh fruit bunch production</li>
+                        <li><i class="fas fa-check-circle"></i> Sustainable farming practices</li>
                     </ul>
-                    <div style="margin-top: 30px;">
-                        <div class="operation-stat" style="display: inline-block; margin-right: 30px;">
-                            <div class="number">28.5</div>
-                            <div class="label">MT/ha average yield</div>
-                        </div>
-                        <div class="operation-stat" style="display: inline-block;">
-                            <div class="number">15%</div>
-                            <div class="label">above national avg</div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 3: Milling & Processing -->
+    <!-- Diverse Crops Section -->
     <section class="section-padding">
         <div class="container">
-            <h2 class="section-title">Milling & Processing</h2>
-            <p class="section-subtitle">Advanced facilities ensuring maximum efficiency and quality</p>
+            <h2 class="section-title">Diverse Crops & Food Security</h2>
+            <p class="section-subtitle">Beyond oil palm — contributing to Nigeria's agricultural diversity</p>
             
             <div class="content-grid" style="direction: rtl;">
                 <div class="content-image" style="direction: ltr;">
-                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Palm oil mill">
+                    <img src="asset/4.jpg" alt="Diverse crops Nigeria">
                 </div>
                 <div class="content-text" style="direction: ltr;">
-                    <h3>State-of-the-Art Facilities</h3>
-                    <p>Our 14 mills are strategically located near plantations, ensuring FFB processing within 24 hours of harvest. Each facility employs the latest technology for maximum efficiency and minimal waste.</p>
-                    
-                    <div class="impact-stats" style="margin: 20px 0; grid-template-columns: repeat(2,1fr);">
-                        <div class="impact-card" style="padding: 15px;">
-                            <div class="impact-number">22%</div>
-                            <div class="impact-label">Oil Extraction Rate</div>
-                        </div>
-                        <div class="impact-card" style="padding: 15px;">
-                            <div class="impact-number">98%</div>
-                            <div class="impact-label">FFB processed within 24h</div>
-                        </div>
-                    </div>
-                    
+                    <h3>Intercropping & Crop Diversification</h3>
+                    <p>We practice intercropping alongside our oil palm cultivation, growing other agricultural products that enhance food security and provide additional revenue. This approach maximizes land utilization and supports local food systems.</p>
                     <ul class="feature-list">
-                        <li><i class="fas fa-bolt"></i> 12MW biomass energy generation</li>
-                        <li><i class="fas fa-recycle"></i> Zero-waste: 100% byproducts utilized</li>
-                        <li><i class="fas fa-certificate"></i> ISO 9001:2015 certified processes</li>
+                        <li><i class="fas fa-check-circle"></i> Intercropping for optimal land use</li>
+                        <li><i class="fas fa-check-circle"></i> Supporting food security in Abia State</li>
+                        <li><i class="fas fa-check-circle"></i> Diverse agricultural products</li>
+                        <li><i class="fas fa-check-circle"></i> Sustainable farming methods</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 4: Innovation & Sustainability -->
+    <!-- Real Estate Section -->
     <section class="section-padding" style="background: var(--light-bg);">
         <div class="container">
-            <h2 class="section-title">Innovation & Sustainability</h2>
-            <p class="section-subtitle">Pioneering research and sustainable practices for tomorrow's palm oil industry</p>
+            <h2 class="section-title">Real Estate</h2>
+            <p class="section-subtitle">Strategic property investments complementing our agricultural operations</p>
             
-            <div class="tech-grid">
-                <div class="tech-card">
-                    <i class="fas fa-dna"></i>
-                    <h4>Tissue Culture</h4>
-                    <p>Producing high-yield, disease-resistant palm varieties in our biotechnology labs</p>
+            <div class="content-grid">
+                <div class="content-image">
+                    <img src="asset/069c944d639d8b-strategic-investment-lands-residential-land-for-sale-mowe-ofada-ogun.jpg" alt="Real estate Nigeria">
                 </div>
-                <div class="tech-card">
-                    <i class="fas fa-solar-panel"></i>
-                    <h4>Biogas Capture</h4>
-                    <p>Methane capture systems generating renewable energy at all mills</p>
-                </div>
-                <div class="tech-card">
-                    <i class="fas fa-map-marked-alt"></i>
-                    <h4>Traceability</h4>
-                    <p>Blockchain-based tracking from plantation to customer</p>
-                </div>
-            </div>
-
-            <div style="text-align: center; margin-top: 50px;">
-                <h3 style="font-size: 24px; color: var(--text-dark); margin-bottom: 30px;">Our Sustainability Commitment</h3>
-                <div class="impact-stats">
-                    <div class="impact-card">
-                        <i class="fas fa-leaf"></i>
-                        <div class="impact-number">100%</div>
-                        <div class="impact-label">MSPO Certified</div>
-                    </div>
-                    <div class="impact-card">
-                        <i class="fas fa-tree"></i>
-                        <div class="impact-number">15,000</div>
-                        <div class="impact-label">Hectares Conserved</div>
-                    </div>
-                    <div class="impact-card">
-                        <i class="fas fa-hand-holding-heart"></i>
-                        <div class="impact-number">50,000+</div>
-                        <div class="impact-label">Community Beneficiaries</div>
-                    </div>
+                <div class="content-text">
+                    <h3>Strategic Land & Property Investments</h3>
+                    <p>In addition to our agricultural focus, Egbeude Plant & Yield Ltd engages in strategic real estate investments. Our corporate headquarters is located at N117 Cameron Road, Aba, Abia State, and we continue to explore property opportunities that align with our growth strategy.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle"></i> Corporate HQ: N117 Cameron Road, Aba</li>
+                        <li><i class="fas fa-check-circle"></i> Strategic property investments</li>
+                        <li><i class="fas fa-check-circle"></i> Complementing agricultural assets</li>
+                        <li><i class="fas fa-check-circle"></i> Long-term value creation</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Impact Section -->
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Our Impact</h2>
+            <p class="section-subtitle">Creating jobs, building partnerships, and driving sustainable growth</p>
+            
+            <div class="impact-stats">
+                <div class="impact-card">
+                    <i class="fas fa-users"></i>
+                    <div class="impact-number">Local</div>
+                    <div class="impact-label">Employment from Nkporo</div>
+                </div>
+                <div class="impact-card">
+                    <i class="fas fa-handshake"></i>
+                    <div class="impact-number">Partnership</div>
+                    <div class="impact-label">With Ohafia LGA</div>
+                </div>
+                <div class="impact-card">
+                    <i class="fas fa-chart-line"></i>
+                    <div class="impact-number">Growth</div>
+                    <div class="impact-label">Sustainable Development</div>
+                </div>
+            </div>
+
+            <div class="content-grid">
+                <div class="content-text">
+                    <h3>Community Partnership at Our Core</h3>
+                    <p>We believe that business success and community prosperity go hand in hand. Our operations in Nkporo community are built on strong relationships with local stakeholders, creating jobs and supporting economic development in Ohafia Local Government Area.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle"></i> Jobs created for Nkporo community members</li>
+                        <li><i class="fas fa-check-circle"></i> Partnership with Ohafia LGA leadership</li>
+                        <li><i class="fas fa-check-circle"></i> Sustainable agricultural practices</li>
+                        <li><i class="fas fa-check-circle"></i> Long-term commitment to Abia State</li>
+                    </ul>
+                </div>
+                <div class="content-image">
+                    <img src="asset/images.jpg" alt="Community partnership Nigeria">
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h4>Egbeude Plant & Yiled</h4>
-                    <p>Leading the way in sustainable palm oil production since 1972. Committed to excellence, environment, and community.</p>
+                    <h4>Egbeude Plant & Yield Ltd</h4>
+                    <p>Agricultural & Real Estate company focused on oil palm plantation in Abia State, Nigeria. Registered with CAC October 2025.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -977,14 +829,14 @@
                 </div>
                 <div class="footer-section">
                     <h4>Contact Us</h4>
-                    <p><i class="fas fa-map-marker-alt"></i> Level 23, Menara TH<br>Jalan Maktab, 54000 Kuala Lumpur</p>
-                    <p><i class="fas fa-phone"></i> +603-1234 5678</p>
-                    <p><i class="fas fa-envelope"></i> info@egbeude.plant</p>
-                    <p><i class="fas fa-clock"></i> Mon-Fri: 8:30am - 5:30pm</p>
+                    <p><i class="fas fa-map-marker-alt"></i> N117 Cameron Road, Aba<br>Abia State, Nigeria</p>
+                    <p><i class="fas fa-tractor"></i> Farm: Nkporo, Ohafia LGA</p>
+                    <p><i class="fas fa-envelope"></i> info@egbeudeplant.com.ng</p>
+                    <p><i class="fas fa-clock"></i> Mon-Fri: 9:00am - 5:00pm</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2025 Egbeude Plant & Yiled. All rights reserved.</p>
+                <p>© 2026 Egbeude Plant & Yield Ltd. All rights reserved.</p>
                 <div class="footer-links">
                     <a href="#" onclick="alert('Privacy Policy page would open here'); showLoader(event); return false;">Privacy Policy</a>
                     <a href="#" onclick="alert('Terms of Use page would open here'); showLoader(event); return false;">Terms of Use</a>
@@ -995,11 +847,9 @@
     </footer>
 
     <script>
-        // Loading overlay functionality
         const loadingOverlay = document.getElementById('loadingOverlay');
         
         function showLoader(event) {
-            // Don't show loader for links that are just alerts or have # href
             if (event.target.getAttribute('href') === '#') {
                 return;
             }
@@ -1007,21 +857,17 @@
             event.preventDefault();
             loadingOverlay.classList.add('active');
             
-            // Get the href
             const href = event.currentTarget.getAttribute('href');
             
-            // Simulate loading delay
             setTimeout(() => {
                 window.location.href = href;
             }, 500);
         }
 
-        // Hide loader when page is fully loaded
         window.addEventListener('load', function() {
             loadingOverlay.classList.remove('active');
         });
 
-        // Show loader on initial page load
         document.addEventListener('DOMContentLoaded', function() {
             loadingOverlay.classList.add('active');
             setTimeout(() => {
@@ -1029,7 +875,6 @@
             }, 500);
         });
 
-        // Mobile Menu Toggle
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const navMenu = document.querySelector('.nav-menu');
         if (mobileMenuBtn) {
@@ -1038,7 +883,6 @@
             });
         }
 
-        // Header scroll effect
         const header = document.querySelector('.header');
         window.addEventListener('scroll', () => {
             if (window.pageYOffset > 100) {
