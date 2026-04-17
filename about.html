@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Egbeude Plant & Yiled · About Us</title>
-    <!-- Same head content as overview.html -->
+    <title>Egbeude Plant & Yield Ltd · About Us</title>
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Copy ALL styles from overview.html plus additional about page styles */
         * {
             margin: 0;
             padding: 0;
@@ -67,7 +66,6 @@
             visibility: visible;
         }
 
-        /* Green loader */
         .loader {
             width: 15px;
             aspect-ratio: 1;
@@ -140,7 +138,6 @@
             display: block;
         }
 
-        /* Desktop Menu */
         .nav-menu {
             display: flex;
             list-style: none;
@@ -164,7 +161,6 @@
             color: var(--white);
         }
 
-        /* Mobile Menu Button */
         .mobile-menu-btn {
             display: none;
             background: none;
@@ -191,7 +187,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('https://images.unsplash.com/photo-1560830831-509af3fba830?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGFsbSUyMG9pbHxlbnwwfHwwfHx8MA%3D%3D') center/cover;
+            background: url('https://images.unsplash.com/photo-1560830831-509af3fba830?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0') center/cover;
             opacity: 0.2;
             z-index: 0;
         }
@@ -299,6 +295,24 @@
             line-height: 1.8;
         }
 
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+
+        .feature-list li i {
+            color: var(--primary-green);
+            font-size: 20px;
+        }
+
         /* Timeline Section */
         .timeline {
             position: relative;
@@ -398,17 +412,16 @@
         .leader-image {
             height: 280px;
             overflow: hidden;
+            background: var(--light-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .leader-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .leader-card:hover .leader-image img {
-            transform: scale(1.1);
+        .leader-image i {
+            font-size: 80px;
+            color: var(--primary-green);
+            opacity: 0.5;
         }
 
         .leader-info {
@@ -620,7 +633,6 @@
             color: var(--white);
         }
 
-        /* Mobile responsive */
         @media (max-width: 1024px) {
             .leadership-grid,
             .culture-grid {
@@ -711,16 +723,14 @@
     </style>
 </head>
 <body>
-    <!-- Loading Overlay -->
     <div class="loading-overlay" id="loadingOverlay">
         <div class="loader"></div>
     </div>
 
-    <!-- Header -->
     <header class="header">
         <div class="container header-container">
             <a href="index.html" class="logo" onclick="showLoader(event)">
-                <h1>EGBEUDE PLANT & YILED<span>sustainable growth</span></h1>
+                <h1>EGBEUDE PLANT & YIELD LTD<span>agriculture · real estate · nigeria</span></h1>
             </a>
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
@@ -735,71 +745,68 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="about-hero">
         <div class="container">
-            <h1>Our Story, Our Commitment</h1>
-            <p>For over five decades, we've cultivated more than oil palms – we've nurtured communities, protected ecosystems, and built a legacy of sustainable excellence.</p>
+            <h1>About Egbeude Plant & Yield Ltd</h1>
+            <p>Agricultural & Real Estate company focused on oil palm plantation and other crops, based in Abia State, Nigeria.</p>
         </div>
     </section>
 
-    <!-- Section 1: Our History Timeline -->
+    <!-- Section 1: Company Overview -->
     <section class="section-padding">
         <div class="container">
+            <h2 class="section-title">Who We Are</h2>
+            <p class="section-subtitle">Building a legacy in Nigerian agriculture and real estate</p>
+            
+            <div class="content-grid">
+                <div class="content-image">
+                    <img src="asset/6.jpg" alt="Oil palm plantation Nigeria">
+                </div>
+                <div class="content-text">
+                    <h3>Rooted in Abia State</h3>
+                    <p>Egbeude Plant & Yield Ltd is an Agricultural and Real Estate Company that primarily focuses on oil palm plantation and other crops. The company has been in business for one year before being registered in October 2025 with the Corporate Affairs Commission (CAC).</p>
+                    <p>We manage a 30-hectare oil palm plantation in Nkporo community, Ohafia Local Government Area, Abia State, and maintain our corporate headquarters at N117 Cameron Road, Aba, Abia State, Nigeria.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle"></i> 30+ hectares under cultivation</li>
+                        <li><i class="fas fa-check-circle"></i> CAC registered since October 2025</li>
+                        <li><i class="fas fa-check-circle"></i> 1 year of pre-registration operations</li>
+                        <li><i class="fas fa-check-circle"></i> Oil palm + real estate diversification</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Our Journey Timeline -->
+    <section class="section-padding" style="background: var(--light-bg);">
+        <div class="container">
             <h2 class="section-title">Our Journey</h2>
-            <p class="section-subtitle">Five decades of growth, innovation, and sustainable leadership</p>
+            <p class="section-subtitle">From humble beginnings to registered agribusiness</p>
             
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <div class="timeline-year">1972</div>
-                        <div class="timeline-title">Humble Beginnings</div>
-                        <div class="timeline-desc">Founded as a modest 500-hectare plantation in Johor, Malaysia, with just 50 employees and a vision for quality palm oil production.</div>
-                    </div>
-                    <div class="timeline-dot"></div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-year">1985</div>
-                        <div class="timeline-title">First Palm Oil Mill</div>
-                        <div class="timeline-desc">Commissioned our first mill, processing 60,000 MT annually and marking our entry into integrated operations.</div>
-                    </div>
-                    <div class="timeline-dot"></div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-year">1998</div>
-                        <div class="timeline-title">Regional Expansion</div>
-                        <div class="timeline-desc">Expanded operations to Sabah and Sarawak, increasing planted area to 50,000 hectares.</div>
-                    </div>
-                    <div class="timeline-dot"></div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-year">2006</div>
-                        <div class="timeline-title">Public Listing</div>
-                        <div class="timeline-desc">Listed on Bursa Malaysia, providing access to capital for further growth and modernization.</div>
-                    </div>
-                    <div class="timeline-dot"></div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-year">2015</div>
-                        <div class="timeline-title">Sustainability Milestone</div>
-                        <div class="timeline-desc">Achieved 100% MSPO certification across all plantations, committing to zero-deforestation practices.</div>
-                    </div>
-                    <div class="timeline-dot"></div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-content">
                         <div class="timeline-year">2024</div>
-                        <div class="timeline-title">Global Recognition</div>
-                        <div class="timeline-desc">Recognized as one of Malaysia's top 10 sustainable palm oil producers, with exports to 25+ countries.</div>
+                        <div class="timeline-title">Operations Begin</div>
+                        <div class="timeline-desc">Started agricultural operations on a 30-hectare farmland in Nkporo community, Ohafia LGA, Abia State, focusing on oil palm cultivation.</div>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">October 2025</div>
+                        <div class="timeline-title">CAC Registration</div>
+                        <div class="timeline-desc">Formally registered with the Corporate Affairs Commission (CAC) of Nigeria, establishing Egbeude Plant & Yield Ltd as a legal entity.</div>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2025 - Present</div>
+                        <div class="timeline-title">Growth & Expansion</div>
+                        <div class="timeline-desc">Expanding oil palm production, exploring intercropping opportunities, and developing real estate investments alongside agricultural operations.</div>
                     </div>
                     <div class="timeline-dot"></div>
                 </div>
@@ -807,121 +814,122 @@
         </div>
     </section>
 
-    <!-- Section 2: Leadership Team -->
-    <section class="section-padding" style="background: var(--light-bg);">
+    <!-- Section 3: Leadership Team -->
+    <section class="section-padding">
         <div class="container">
-            <h2 class="section-title">Our Leadership</h2>
-            <p class="section-subtitle">Experienced leaders driving our vision and values</p>
+            <h2 class="section-title">Board of Directors & Leadership</h2>
+            <p class="section-subtitle">Experienced professionals guiding our vision</p>
             
             <div class="leadership-grid">
                 <div class="leader-card">
                     <div class="leader-image">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Dato' Ahmad Razak">
+                        <i class="fas fa-user-tie"></i>
                     </div>
                     <div class="leader-info">
-                        <h3>Dato' Ahmad Razak</h3>
-                        <div class="position">Chairman</div>
-                        <div class="bio">40+ years in agribusiness, former CEO of Malaysian Palm Oil Board.</div>
+                        <h3>Chief Egbeude U.</h3>
+                        <div class="position">Chairman / Founder</div>
+                        <div class="bio">Visionary leader with deep roots in Abia State agriculture, overseeing strategic direction and community relations.</div>
                     </div>
                 </div>
 
                 <div class="leader-card">
                     <div class="leader-image">
-                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Siti Nurhaliza">
+                        <i class="fas fa-chart-line"></i>
                     </div>
                     <div class="leader-info">
-                        <h3>Siti Nurhaliza</h3>
-                        <div class="position">Chief Executive Officer</div>
-                        <div class="bio">20 years in plantation management, leading sustainability transformation.</div>
+                        <h3>Managing Director</h3>
+                        <div class="position">CEO</div>
+                        <div class="bio">Experienced agribusiness executive driving operational excellence and sustainable growth.</div>
                     </div>
                 </div>
 
                 <div class="leader-card">
                     <div class="leader-image">
-                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Michael Tan">
+                        <i class="fas fa-tractor"></i>
                     </div>
                     <div class="leader-info">
-                        <h3>Michael Tan</h3>
-                        <div class="position">Chief Operating Officer</div>
-                        <div class="bio">Expert in mill operations and supply chain optimization.</div>
+                        <h3>Head of Agriculture</h3>
+                        <div class="position">Farm Operations</div>
+                        <div class="bio">Responsible for plantation management, crop optimization, and sustainable farming practices.</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 3: Our Impact -->
-    <section class="section-padding">
+    <!-- Section 4: Our Impact -->
+    <section class="section-padding" style="background: var(--light-bg);">
         <div class="container">
             <h2 class="section-title">Our Impact</h2>
-            <p class="section-subtitle">Creating value for stakeholders, communities, and the environment</p>
+            <p class="section-subtitle">Creating value for Nkporo community and beyond</p>
             
             <div class="impact-stats">
                 <div class="impact-card">
-                    <i class="fas fa-users"></i>
-                    <div class="impact-number">6,500+</div>
-                    <div class="impact-label">Employees</div>
+                    <i class="fas fa-tree"></i>
+                    <div class="impact-number">30+</div>
+                    <div class="impact-label">Hectares Cultivated</div>
                 </div>
                 <div class="impact-card">
                     <i class="fas fa-leaf"></i>
-                    <div class="impact-number">15,000</div>
-                    <div class="impact-label">Hectares Conserved</div>
+                    <div class="impact-number">100%</div>
+                    <div class="impact-label">Local Employment</div>
                 </div>
                 <div class="impact-card">
                     <i class="fas fa-hand-holding-heart"></i>
-                    <div class="impact-number">50,000+</div>
-                    <div class="impact-label">Community Beneficiaries</div>
+                    <div class="impact-number">Nkporo</div>
+                    <div class="impact-label">Community Partnership</div>
                 </div>
             </div>
 
             <div class="content-grid">
                 <div class="content-text">
-                    <h3>Beyond Business</h3>
-                    <p>Our commitment extends far beyond palm oil production. Through the Egbeude Foundation, we've invested over RM50 million in education, healthcare, and infrastructure development for plantation communities.</p>
-                    <ul class="feature-list" style="list-style: none; padding: 0;">
-                        <li style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;"><i class="fas fa-school" style="color: var(--primary-green);"></i> 12 community schools built</li>
-                        <li style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;"><i class="fas fa-clinic-medical" style="color: var(--primary-green);"></i> 5 mobile health clinics</li>
-                        <li style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;"><i class="fas fa-water" style="color: var(--primary-green);"></i> Clean water access for 30,000+ families</li>
+                    <h3>Community at Our Core</h3>
+                    <p>Our commitment extends beyond farming. We work hand-in-hand with the Nkporo community, creating local jobs and supporting sustainable development in Ohafia Local Government Area.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-users"></i> Local employment from Nkporo community</li>
+                        <li><i class="fas fa-handshake"></i> Strong partnership with Ohafia LGA</li>
+                        <li><i class="fas fa-seedling"></i> Knowledge transfer in sustainable farming</li>
+                        <li><i class="fas fa-chart-line"></i> Supporting local economic growth</li>
                     </ul>
                 </div>
                 <div class="content-image">
-                    <img src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Community impact">
+                    <img src="asset/10.jpg" alt="Community partnership Nigeria">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 4: Our Culture -->
-    <section class="section-padding" style="background: var(--light-bg);">
+    <!-- Section 5: Our Culture & Values -->
+    <section class="section-padding">
         <div class="container">
-            <h2 class="section-title">Our Culture</h2>
-            <p class="section-subtitle">The values that unite us and drive our success</p>
+            <h2 class="section-title">Our Values</h2>
+            <p class="section-subtitle">The principles that guide everything we do</p>
             
             <div class="culture-grid">
                 <div class="culture-item">
                     <i class="fas fa-handshake"></i>
                     <h4>Integrity</h4>
-                    <p>Uncompromising ethics in every decision</p>
+                    <p>Honest and transparent business practices</p>
                 </div>
                 <div class="culture-item">
-                    <i class="fas fa-lightbulb"></i>
-                    <h4>Innovation</h4>
-                    <p>Constantly improving and adapting</p>
+                    <i class="fas fa-seedling"></i>
+                    <h4>Sustainability</h4>
+                    <p>Protecting land for future generations</p>
                 </div>
                 <div class="culture-item">
                     <i class="fas fa-heart"></i>
-                    <h4>Respect</h4>
-                    <p>For people, communities, and nature</p>
+                    <h4>Community</h4>
+                    <p>Growing together with Nkporo and Abia State</p>
                 </div>
                 <div class="culture-item">
                     <i class="fas fa-award"></i>
                     <h4>Excellence</h4>
-                    <p>Striving for the highest standards</p>
+                    <p>High-quality agricultural production</p>
                 </div>
             </div>
 
             <div style="text-align: center; margin-top: 40px;">
-                <p style="color: var(--text-light); max-width: 800px; margin: 0 auto;">Our diverse team of 6,500+ employees represents Malaysia's rich cultural heritage, working together towards a shared vision of sustainable prosperity.</p>
+                <p style="color: var(--text-light); max-width: 800px; margin: 0 auto;">At Egbeude Plant & Yield Ltd, we believe that responsible agriculture and real estate development go hand-in-hand with community prosperity and environmental stewardship.</p>
             </div>
         </div>
     </section>
@@ -931,8 +939,8 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h4>Egbeude Plant & Yiled</h4>
-                    <p>Leading the way in sustainable palm oil production since 1972. Committed to excellence, environment, and community.</p>
+                    <h4>Egbeude Plant & Yield Ltd</h4>
+                    <p>Agricultural & Real Estate company focused on oil palm plantation in Abia State, Nigeria. Registered with CAC October 2025.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -950,14 +958,14 @@
                 </div>
                 <div class="footer-section">
                     <h4>Contact Us</h4>
-                    <p><i class="fas fa-map-marker-alt"></i> Level 23, Menara TH<br>Jalan Maktab, 54000 Kuala Lumpur</p>
-                    <p><i class="fas fa-phone"></i> +603-1234 5678</p>
-                    <p><i class="fas fa-envelope"></i> info@egbeude.plant</p>
-                    <p><i class="fas fa-clock"></i> Mon-Fri: 8:30am - 5:30pm</p>
+                    <p><i class="fas fa-map-marker-alt"></i> N117 Cameron Road, Aba<br>Abia State, Nigeria</p>
+                    <p><i class="fas fa-tractor"></i> Farm: Nkporo, Ohafia LGA</p>
+                    <p><i class="fas fa-envelope"></i> info@egbeudeplant.com.ng</p>
+                    <p><i class="fas fa-clock"></i> Mon-Fri: 9:00am - 5:00pm</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2025 Egbeude Plant & Yiled. All rights reserved.</p>
+                <p>© 2026 Egbeude Plant & Yield Ltd. All rights reserved.</p>
                 <div class="footer-links">
                     <a href="#" onclick="alert('Privacy Policy page would open here'); showLoader(event); return false;">Privacy Policy</a>
                     <a href="#" onclick="alert('Terms of Use page would open here'); showLoader(event); return false;">Terms of Use</a>
@@ -968,11 +976,9 @@
     </footer>
 
     <script>
-        // Loading overlay functionality
         const loadingOverlay = document.getElementById('loadingOverlay');
         
         function showLoader(event) {
-            // Don't show loader for links that are just alerts or have # href
             if (event.target.getAttribute('href') === '#') {
                 return;
             }
@@ -980,21 +986,17 @@
             event.preventDefault();
             loadingOverlay.classList.add('active');
             
-            // Get the href
             const href = event.currentTarget.getAttribute('href');
             
-            // Simulate loading delay
             setTimeout(() => {
                 window.location.href = href;
             }, 500);
         }
 
-        // Hide loader when page is fully loaded
         window.addEventListener('load', function() {
             loadingOverlay.classList.remove('active');
         });
 
-        // Show loader on initial page load
         document.addEventListener('DOMContentLoaded', function() {
             loadingOverlay.classList.add('active');
             setTimeout(() => {
@@ -1002,7 +1004,6 @@
             }, 500);
         });
 
-        // Mobile Menu Toggle
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const navMenu = document.querySelector('.nav-menu');
         if (mobileMenuBtn) {
@@ -1011,7 +1012,6 @@
             });
         }
 
-        // Header scroll effect
         const header = document.querySelector('.header');
         window.addEventListener('scroll', () => {
             if (window.pageYOffset > 100) {
